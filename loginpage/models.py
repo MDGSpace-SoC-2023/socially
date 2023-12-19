@@ -8,7 +8,7 @@ class RegisterUser(models.Model):
     username = models.CharField(max_length=200)
     password = models.CharField(max_length=100)
     published_date = models.DateTimeField(blank=True, null=True)
-    image_url = models.ImageField()
+    image_url = models.ImageField(blank=True)
     
     def __str__(self):
         return self.username
@@ -17,6 +17,13 @@ class RegisterUser(models.Model):
         self.save()
         
 class LoginUser(models.Model):
+    username = models.CharField(max_length=200)
+    password = models.CharField(max_length=100)
+        
+    def __str__(self):
+        return self.username
+        
+class Sample(models.Model):
     username = models.CharField(max_length=200)
     password = models.CharField(max_length=100)
         

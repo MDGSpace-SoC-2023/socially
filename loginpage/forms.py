@@ -10,6 +10,6 @@ class RegisterForm(forms.ModelForm):
 
 class LoginForm(forms.ModelForm):
     class Meta:
-        model=LoginUser
-        fields = {'username','password'}
+        model=RegisterUser
+        fields = ('username','password')
 
