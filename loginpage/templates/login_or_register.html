@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+    </head>
+    <body>
+        <h1>You are at Socially's offical webiste </h1>
+        <h2>Login or register</h2>
+        <a href="http://localhost:8000/login/"><button> Login</button></a>
+       {% comment %} // <a href="{% url 'sample' %}" > // {% endcomment %}
+            
+        <a href="http://localhost:8000/register/"><button> Register </button></a>
+        
+        
+        
+        
+    </body>
+</html>
