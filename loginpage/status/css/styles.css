@@ -1,3 +1,14 @@
-h1{
-    color: aqua;
+h1 a, h2 a {
+    color: #C25100;
+    font-family: 'Lobster';
+}
+body{
+    background-image:url("https://w0.peakpx.com/wallpaper/104/998/HD-wallpaper-workplace-writer-concepts-journalist-workplace-journalism-concepts-typewriter-notebook.jpg");
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }

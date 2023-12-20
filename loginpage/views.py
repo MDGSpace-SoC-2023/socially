@@ -73,7 +73,8 @@ def blog_edit(request):
             form = BlogForm()
     return render(request,"blog_edit.html",{'form':form})
         
-
+def post_list(request):
+    return render(request,"post_list.html",{})
 
 
     

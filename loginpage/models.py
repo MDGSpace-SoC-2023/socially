@@ -37,6 +37,7 @@ class Blog(models.Model):
     published_date = models.DateTimeField(blank=True,null = True)
     
 class Post(models.Model):
+    user= models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     image = models.ImageField()
     caption = models.CharField(max_length = 200)
     likes = models.IntegerField()
