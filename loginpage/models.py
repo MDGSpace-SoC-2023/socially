@@ -30,6 +30,19 @@ class Sample(models.Model):
     def __str__(self):
         return self.username
         
+class Blog(models.Model):
+    type = models.CharField(max_length=25)
+    title = models.CharField(max_length=100)
+    content = models.CharField(max_length=200)
+    published_date = models.DateTimeField(blank=True,null = True)
+    
+class Post(models.Model):
+    image = models.ImageField()
+    caption = models.CharField(max_length = 200)
+    likes = models.IntegerField()
+    
+    
+    
     
     
     

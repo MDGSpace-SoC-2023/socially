@@ -1,5 +1,5 @@
 from django import forms 
-from .models import RegisterUser,LoginUser
+from .models import RegisterUser,LoginUser,Blog,Post
 
 class RegisterForm(forms.ModelForm):
     class Meta:
@@ -12,4 +12,9 @@ class LoginForm(forms.ModelForm):
     class Meta:
         model=RegisterUser
         fields = ('username','password')
+        
+class BlogForm(forms.ModelForm):
+    class Meta:
+        model = Blog
+        fields = ('type','title','content')
 

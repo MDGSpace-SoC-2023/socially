@@ -1,11 +1,11 @@
-from django.shortcuts import render
-from .forms import RegisterForm,LoginForm
+from django.shortcuts import render, get_object_or_404
+from .forms import RegisterForm,BlogForm,LoginForm
 from django.shortcuts import redirect
 from django.utils import timezone
 from django.contrib.auth.models import User
 from . import forms 
 
-from .models import RegisterUser,Sample
+from .models import RegisterUser,Sample,Blog,Post
 
 
 # Create your views here.
@@ -49,8 +49,31 @@ def login_page(request):
                 return render(request,'failed.html',{})
             
     return render(request,'loginpage.html',{'form':form})
+
+def blog_list(request):
+    blogs = Blog.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request,"blog_list.html",{'blogs':blogs})
     
-   
+def blog_detail(request, pk):
+    blog = get_object_or_404(Blog, pk=pk)
+    return render(request, 'blog_detail.html', {'blog': blog})
+def blog_edit(request):
+    form = forms.BlogForm()
+    if request.method == "POST":
+        form = forms.BlogForm(request.POST)
+        if form.is_valid():
+            print("Validation complete! ")
+            type = form.cleaned_data['type']
+            title = form.cleaned_data['title']
+            content = form.cleaned_data['content']
+            user_input = Blog(type=type,content = content, title= title, published_date = timezone.now())
+            user_input.save()
+            return redirect('literature')
+        else:
+            form = BlogForm()
+    return render(request,"blog_edit.html",{'form':form})
+        
+
 
 
     

@@ -1,7 +1,5 @@
-<!DOCTYPE html>
 {% load static %}
-
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -12,9 +10,17 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        Yay. You have successfully logged in / registered. 
-        <a a href="{% url 'literature' %}"> Literature <a/>
+        <article class="post">
+            
+            <h2> {{blog.title}} </h2>
+            <h5> Type : {{ blog.type }}</h5>
+            <p>{{ blog.content|linebreaksbr }}</p>
+            <time >
+                {{ blog.published_date }}
+            </time>
+            <br>
+            {{blog.pk}}
+        </article>
         
-        <script src="" async defer></script>
     </body>
 </html>
