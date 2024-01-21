@@ -5,11 +5,19 @@ export default function Home()
 {
     return(<>
     <header>
-  <h1>Your Doodle Header</h1>
+  <h1></h1>
   <div className="doodle-container">
     <div className="doodle"></div>
     <div className="doodle"></div>
     <div className="doodle"></div>
+    <button onClick={()=>window.location.href="/home/login"}>Login </button> 
+
+    <br/>
+
+
+    <button onClick={()=>window.location.href="/home/register"}> Register </button>
+
+
   </div>
 </header>
     

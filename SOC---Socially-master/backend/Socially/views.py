@@ -325,3 +325,39 @@ class UserMemesView(APIView):
         post = Memes.objects.all()
         serializer = MemeSerializer(post, many=True)
         return Response(serializer.data)
+    
+
+class RegisterView(APIView):
+    
+    def get(self, request, id):
+        post = Memes.objects.get(id=id)
+        data = MemeSerializer(post).data
+        return Response(data)
+    @csrf_exempt
+    def post(self, request):
+        data = JSONParser().parse(request)
+        serializer = MemeSerializer(data=data)
+        if(serializer.is_valid()): 
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+    @csrf_exempt
+    def patch(self, request, id, format=None):
+        post = Memes.objects.get(id=id)
+        serializer = MemeSerializer(post, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=400)
+    @csrf_exempt
+    def delete(self, request, id, format=None):
+        post = Memes.objects.get(id=id)
+        post.delete()
+        return Response(status=204)
+    
+class UserMemesView(APIView):
+    @csrf_exempt
+    def get(self, request):
+        post = Memes.objects.all()
+        serializer = MemeSerializer(post, many=True)
+        return Response(serializer.data)

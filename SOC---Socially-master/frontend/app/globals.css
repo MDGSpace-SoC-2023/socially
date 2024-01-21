@@ -74,3 +74,90 @@
     @apply bg-background text-foreground;
   }
 }
+
+body{
+
+  background-color: white;
+  color: black;
+}
+
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  max-width: 100px;
+  height: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+
+.card {
+  width: 300px;
+  margin: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Scale the card on hover */
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.card-content p {
+  color: #666;
+  line-height: 1.5;
+}
+
+
+.yellow
+{
+  background-color: yellow;
+}
+
+.delete-button
+{
+  background-color: red;
+}
+
+.edit-button 
+{
+  background-color: green;
+}

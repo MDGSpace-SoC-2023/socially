@@ -35,9 +35,9 @@ const [meme, setMeme] = useState({
         }}> Show me a meme </button>
        <br/>
         
-
-       <img src={meme['url']} height={300} width={300}/> <br/>
-       <h1>{meme.title}</h1>
+    {valid?(<><img src={meme['url']} height={300} width={300}/> <br/> <h1>{meme.title}</h1></>):(<p></p>)}
+       
+       
        {!valid?(<p>  </p>):(<button className="delete-button" onClick={()=>onAdd(meme,valid)}> Add meme</button>)}
        
        </>);
